@@ -224,34 +224,34 @@ class Orquestrador:
             print(f"Servidor {sid}: {stats['tarefas']} tarefas proc. | Carga CPU: {stats['uso']:.1f}%")
         print("=" * 40)
 
-    def carregar_dados():
-        nome_arquivo = "input.json"
+def carregar_dados():
+    nome_arquivo = "input.json"
         
-        # Dados hardcoded como fallback
-        dados_padrao = {
-            "servidores": [
-                {"id": 1, "capacidade": 3},
-                {"id": 2, "capacidade": 2},
-                {"id": 3, "capacidade": 1}
-            ],
-            "requisicoes": [
-                {"id": 101, "tipo": "visao_computacional", "prioridade": 1, "tempo_exec": 8},
-                {"id": 102, "tipo": "nlp", "prioridade": 3, "tempo_exec": 3},
-                {"id": 103, "tipo": "voz", "prioridade": 2, "tempo_exec": 5},
-            ]
-        }
+    # Dados hardcoded como fallback
+    dados_padrao = {
+        "servidores": [
+            {"id": 1, "capacidade": 3},
+            {"id": 2, "capacidade": 2},
+            {"id": 3, "capacidade": 1}
+        ],
+        "requisicoes": [
+            {"id": 101, "tipo": "visao_computacional", "prioridade": 1, "tempo_exec": 8},
+            {"id": 102, "tipo": "nlp", "prioridade": 3, "tempo_exec": 3},
+            {"id": 103, "tipo": "voz", "prioridade": 2, "tempo_exec": 5},
+        ]
+    }
 
-        if os.path.exists(nome_arquivo):
-            try:
-                with open(nome_arquivo, 'r') as f:
-                    dados_arquivo = json.load(f)
-                    print(f">>> AVISO: Usando dados do arquivo '{nome_arquivo}'")
-                    return dados_arquivo['servidores'], dados_arquivo['requisicoes']
-            except Exception as e:
-                print(f">>> ERRO ao ler '{nome_arquivo}'. Revertendo para dados padrão. Erro: {e}")
+    if os.path.exists(nome_arquivo):
+        try:
+            with open(nome_arquivo, 'r') as f:
+                dados_arquivo = json.load(f)
+                print(f">>> AVISO: Usando dados do arquivo '{nome_arquivo}'")
+                return dados_arquivo['servidores'], dados_arquivo['requisicoes']
+        except Exception as e:
+            print(f">>> ERRO ao ler '{nome_arquivo}'. Revertendo para dados padrão. Erro: {e}")
 
-        print(">>> AVISO: Usando dados padrão internos (nenhum 'input.json' encontrado).")
-        return dados_padrao['servidores'], dados_padrao['requisicoes']
+    print(">>> AVISO: Usando dados padrão internos (nenhum 'input.json' encontrado).")
+    return dados_padrao['servidores'], dados_padrao['requisicoes']
 
 
 if __name__ == "__main__":

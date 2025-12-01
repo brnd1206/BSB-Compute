@@ -223,3 +223,72 @@ class Orquestrador:
         for sid, stats in stats_servidor.items():
             print(f"Servidor {sid}: {stats['tarefas']} tarefas proc. | Carga CPU: {stats['uso']:.1f}%")
         print("=" * 40)
+
+    def carregar_dados():
+        nome_arquivo = "input.json"
+        
+        # Dados hardcoded como fallback
+        dados_padrao = {
+            "servidores": [
+                {"id": 1, "capacidade": 3},
+                {"id": 2, "capacidade": 2},
+                {"id": 3, "capacidade": 1}
+            ],
+            "requisicoes": [
+                {"id": 101, "tipo": "visao_computacional", "prioridade": 1, "tempo_exec": 8},
+                {"id": 102, "tipo": "nlp", "prioridade": 3, "tempo_exec": 3},
+                {"id": 103, "tipo": "voz", "prioridade": 2, "tempo_exec": 5},
+            ]
+        }
+
+        if os.path.exists(nome_arquivo):
+            try:
+                with open(nome_arquivo, 'r') as f:
+                    dados_arquivo = json.load(f)
+                    print(f">>> AVISO: Usando dados do arquivo '{nome_arquivo}'")
+                    return dados_arquivo['servidores'], dados_arquivo['requisicoes']
+            except Exception as e:
+                print(f">>> ERRO ao ler '{nome_arquivo}'. Revertendo para dados padrão. Erro: {e}")
+
+        print(">>> AVISO: Usando dados padrão internos (nenhum 'input.json' encontrado).")
+        return dados_padrao['servidores'], dados_padrao['requisicoes']
+
+
+if __name__ == "__main__":
+    dados_servidores, dados_requisicoes = carregar_dados()
+
+    print(">>> Iniciando Análise Comparativa de Políticas de Escalonamento...\n")
+
+    resultados = []
+
+    # 1. Fase de Teste (Silenciosa)
+    for pol in [Politica.ROUND_ROBIN, Politica.SJF, Politica.PRIORIDADE]:
+        print(f"Testando {pol.name}...", end="")
+        app = Orquestrador(
+            copy.deepcopy(dados_servidores),
+            copy.deepcopy(dados_requisicoes),
+            politica=pol,
+            modo_silencioso=True
+        )
+        metricas = app.executar()
+        resultados.append((pol, metricas))
+        print(f" Concluído. (Tempo Médio: {metricas['tempo_medio']:.2f}s)")
+
+    # 2. Seleção da Melhor Política
+    melhor_cenario = min(resultados, key=lambda x: x[1]['tempo_medio'])
+    melhor_politica = melhor_cenario[0]
+
+    print("\n" + "*" * 60)
+    print(f"RESULTADO DA ANÁLISE: A melhor política foi {melhor_politica.name}")
+    print("Iniciando simulação detalhada com a política vencedora...")
+    print("*" * 60 + "\n")
+    time.sleep(1)
+
+    # 3. Execução Final (Visual)
+    app_final = Orquestrador(
+        copy.deepcopy(dados_servidores),
+        copy.deepcopy(dados_requisicoes),
+        politica=melhor_politica,
+        modo_silencioso=False
+    )
+    app_final.executar()    

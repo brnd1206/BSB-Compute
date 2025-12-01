@@ -56,7 +56,7 @@ Não é necessário instalar bibliotecas externas via `pip`, pois o projeto util
 
 2.  **Clone o Repositório:**
     ```bash
-    git clone [https://github.com/SEU-USUARIO/bsb-compute-so.git](https://github.com/SEU-USUARIO/bsb-compute-so.git)
+    git clone [https://github.com/SEU-USUARIO/BSB-Compute.git](https://github.com/SEU-USUARIO/BSB-Compute.git)
     cd bsb-compute-so
     ```
 
@@ -65,7 +65,7 @@ Não é necessário instalar bibliotecas externas via `pip`, pois o projeto util
 Para iniciar a orquestração, execute o comando:
 
 ```bash
-python bsb_compute_final.py
+python bsb_compute_app.py
 ```
 
 ---

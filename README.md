@@ -56,7 +56,7 @@ Não é necessário instalar bibliotecas externas via `pip`, pois o projeto util
 
 2.  **Clone o Repositório:**
     ```bash
-    git clone [https://github.com/SEU-USUARIO/BSB-Compute.git](https://github.com/SEU-USUARIO/BSB-Compute.git)
+    git clone https://github.com/brnd1206/BSB-Compute.git
     cd BSB-Compute-main
     ```
 

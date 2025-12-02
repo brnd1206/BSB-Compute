@@ -57,7 +57,7 @@ Não é necessário instalar bibliotecas externas via `pip`, pois o projeto util
 2.  **Clone o Repositório:**
     ```bash
     git clone https://github.com/brnd1206/BSB-Compute.git
-    cd BSB-Compute-main
+    cd BSB-Compute
     ```
 
 ### 2. Executando o Simulador

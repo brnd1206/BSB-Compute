@@ -1,10 +1,10 @@
-# 💻 BSB Compute - Orquestrador de Tarefas Distribuídas
+# BSB Compute - Orquestrador de Tarefas Distribuídas
 
 ![Python](https://img.shields.io/badge/PYTHON-3.8%2B-blue?style=for-the-badge)
 
 ---
 
-## 📄 Sobre o Projeto
+## Sobre o Projeto
 
 O **BSB Compute** é um software de simulação que atua como um orquestrador de tarefas para um cluster de inferência de Inteligência Artificial.
 
@@ -19,7 +19,7 @@ O foco principal deste projeto está na **aplicação prática de conceitos de S
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 Este projeto foi construído utilizando as seguintes tecnologias:
 
@@ -30,7 +30,7 @@ Este projeto foi construído utilizando as seguintes tecnologias:
 
 ---
 
-## ✨ Funcionalidades
+## Funcionalidades
 
 O sistema BSB Compute oferece as seguintes funcionalidades principais:
 
@@ -41,7 +41,7 @@ O sistema BSB Compute oferece as seguintes funcionalidades principais:
 
 ---
 
-## 📚 Manual de Instruções
+## Manual de Instruções
 
 ### 1. Instalação e Pré-requisitos
 
@@ -70,7 +70,7 @@ python bsb_compute_app.py
 
 ---
 
-## 📖 Fluxo de Execução (Casos de Uso)
+## Fluxo de Execução (Casos de Uso)
 
 Abaixo descrevemos o comportamento do sistema durante uma execução padrão.
 
@@ -83,13 +83,7 @@ Abaixo descrevemos o comportamento do sistema durante uma execução padrão.
 
 ---
 
-## 🤝 Contribuição
-
-Sinta-se à vontade para contribuir! Se tiver sugestões ou quiser reportar bugs, abra uma *Issue* ou envie um *Pull Request*.
-
----
-
-## 👨‍💻 Autores
+## Autores
 
 | **Bernardo de Carvalho Leite** |
 | https://github.com/brnd1206 |
